@@ -6,46 +6,130 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <title>隐私政策 · NConvo</title>
 <style>
-  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Microsoft YaHei",sans-serif;max-width:720px;margin:0 auto;padding:24px 16px;color:#1a1a1a;line-height:1.7;background:#fff}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Microsoft YaHei",sans-serif;max-width:760px;margin:0 auto;padding:24px 16px;color:#1a1a1a;line-height:1.75;background:#fff}
   h1{font-size:24px;margin-bottom:8px}
-  h2{font-size:18px;margin-top:28px;margin-bottom:8px}
-  p{margin:10px 0;color:#444}
+  h2{font-size:18px;margin-top:30px;margin-bottom:8px;color:#1E3A8A}
+  p{margin:10px 0;color:#333}
   a{color:#1E63D0;text-decoration:none}
   a:hover{text-decoration:underline}
-  .brand{display:inline-block;margin-bottom:24px;font-size:14px;color:#666}
-  ul{padding-left:20px;color:#444}
+  .brand{display:inline-block;margin-bottom:20px;font-size:14px;color:#666}
+  ul{padding-left:20px;color:#333}
   li{margin:6px 0}
+  .en{border-top:2px solid #e3eaf7;margin-top:40px;padding-top:24px;color:#555}
+  .en h1,.en h2{color:#1E3A8A}
+  .muted{color:#888;font-size:13px}
+  table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0}
+  th,td{border:1px solid #e3eaf7;padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f7faff}
 </style>
 </head>
 <body>
 <a class="brand" href="index.html">← NConvo</a>
 
 <h1>隐私政策</h1>
-<p>最后更新：2026 年 9 月 23 日</p>
+<p class="muted">生效日期：2026 年 9 月 24 日 · 适用于 NConvo App（Android / iOS）与 nconvo.tinylabpro.com 网站</p>
 
-<h2>概述</h2>
-<p>NConvo 是小产品实验室出品的网络会话与移动网络运维工具（SSH 终端、RDP 远程桌面、网络诊断、局域网工具）。我们重视你的隐私，本政策说明本 App 与本站如何处理数据。</p>
+<p>NConvo 由小产品实验室（TinyProductLab）开发运营。这是一款本地优先的网络运维工具：SSH 终端、RDP 远程桌面、局域网互传与网络诊断。本政策说明我们如何处理（以及**不**如何处理）你的数据。</p>
 
-<h2>我们收集的信息</h2>
-<p>本 App 的连接配置与凭证默认保存在你的设备本地，不上传开发者服务器。SSH、RDP、Ping、Traceroute、文件传输等网络功能由你的设备直连目标主机，不经过我们的服务器。WebDAV 备份为加密文件，存储在你自行选择的服务上。</p>
-<p>本 App 无广告、无广告追踪。账号体系是可选的，注册与登录在网页端完成；不使用账号不影响核心功能。</p>
+<h2>一、默认不上传的核心数据</h2>
+<p>以下数据默认只保存在你的设备本地，除非你选择备份功能，否则不会离开设备：</p>
+<ul>
+  <li>SSH / RDP 连接配置（主机、端口、用户名等）</li>
+  <li>登录凭证（密码、SSH 私钥）。私钥经系统级加密存放（Android Keystore / iOS Keychain），App 不提供私钥明文导出</li>
+  <li>会话历史与终端滚动缓冲</li>
+  <li>设置项（外观、语言、工具偏好）</li>
+</ul>
 
-<h2>服务器日志</h2>
-<p>本站托管在 GitHub Pages，托管服务可能记录访问日志，包括访问时间、请求路径、浏览器类型和 IP 地址，用于安全防护和服务稳定运行。这些日志不由我们控制，保留期限遵循托管服务商政策。</p>
+<h2>二、各项功能的数据流</h2>
+<table>
+  <tr><th>功能</th><th>数据去向</th></tr>
+  <tr><td>SSH / RDP 连接</td><td>你的设备直连目标主机，不经过我们的服务器</td></tr>
+  <tr><td>网络诊断 / LAN 工具（Ping、DNS、扫描等）</td><td>设备直连目标网络；DNS 查询走你配置或系统默认的解析服务器</td></tr>
+  <tr><td>局域网互传</td><td>同一局域网内设备间点对点传输，不经过服务器</td></tr>
+  <tr><td>WebDAV 备份</td><td>加密备份文件（AES-GCM）写入**你自己选择**的 WebDAV 服务端（如坚果云、NAS），我们无法访问备份内容，密钥不随备份存储</td></tr>
+  <tr><td>账号系统（可选）</td><td>见第三节</td></tr>
+</table>
 
-<h2>Cookie</h2>
-<p>本站不主动设置追踪 Cookie。语言偏好仅保存于你浏览器的 localStorage，不会发送到任何服务器。</p>
+<h2>三、账号系统（可选功能）</h2>
+<p>账号是可选的，不使用账号不影响全部核心功能。注册需邮箱：我们使用你的邮箱发送验证码并完成注册，账号数据（昵称、邮箱、登录状态）存储在我们的服务器 <code>account.tinylabpro.com</code> 上。你可以随时在「我的 → 账号 → 账号数据」导出或申请删除账号数据，删除后云端记录将被移除，本机的连接与凭证数据需你另行删除。</p>
 
-<h2>第三方服务</h2>
-<p>本站可能包含指向第三方网站的链接，这些网站有各自的隐私政策，我们不承担其内容和行为的责任。</p>
+<h2>四、我们不做什么</h2>
+<ul>
+  <li>无广告、无广告标识符追踪</li>
+  <li>不使用任何第三方分析 / 埋点 / 崩溃上报 SDK（如 Google Analytics、友盟等）</li>
+  <li>不收集你的终端内容、不读取你的复制粘贴板</li>
+  <li>不与任何第三方共享、出售你的个人信息</li>
+</ul>
 
-<h2>儿童隐私</h2>
-<p>本站与本 App 不主动收集儿童个人信息。未成年人应在监护人指导下使用。</p>
+<h2>五、系统权限说明</h2>
+<table>
+  <tr><th>权限</th><th>用途</th><th>触发时机</th></tr>
+  <tr><td>本地网络（iOS）</td><td>局域网扫描、局域网互传</td><td>仅在发起扫描或传输时请求</td></tr>
+  <tr><td>相机</td><td>扫码添加连接 / 配对设备</td><td>仅在你点击扫码时请求</td></tr>
+  <tr><td>Face ID / 生物识别</td><td>解锁已保存的凭证与应用锁</td><td>仅在你开启应用锁或要求生物识别时</td></tr>
+  <tr><td>网络 / 蜂窝与 Wi-Fi</td><td>SSH、RDP、诊断工具所需</td><td>默认权限</td></tr>
+</table>
 
-<h2>政策更新</h2>
-<p>功能或第三方服务变化时，本政策会相应更新。如有隐私问题，请联系 <a href="mailto:userfeedback@zohomail.com">userfeedback@zohomail.com</a>。</p>
-<footer style="max-width:720px;margin:40px auto;padding:0 16px;color:#999;font-size:13px;border-top:1px solid #eee;padding-top:20px;text-align:center;">
-  <p>© 2026 TinyProductLab · 小产品实验室 · <a href="https://tinylabpro.com/">更多工具</a></p>
+<h2>六、托管服务日志</h2>
+<p>本站托管于 GitHub Pages，经 Cloudflare 加速。这些服务商可能记录访问日志（时间、路径、IP、User-Agent），用于安全防护；日志不由我们控制，保留期限遵循各服务商政策。账号服务的登录日志仅用于安全审计。</p>
+
+<h2>七、Cookie</h2>
+<p>本站不设置追踪 Cookie。语言偏好仅保存在你浏览器的 localStorage，不会发送到服务器。</p>
+
+<h2>八、儿童隐私</h2>
+<p>本 App 与网站不面向 13 岁以下儿童，我们不会有意收集儿童个人信息。如发现误收，请联系我们删除。</p>
+
+<h2>九、数据安全</h2>
+<p>SSH / RDP 会话本身使用协议原生加密；备份文件使用 AES-GCM 加密后上传；账号通信走 HTTPS。密钥存放在系统硬件级保险区。建议你为设备启用锁屏与系统更新。</p>
+
+<h2>十、联系我们与政策更新</h2>
+<p>如有隐私问题或希望行使数据权利（查询、导出、删除），请联系：<a href="mailto:userfeedback@zohomail.com">userfeedback@zohomail.com</a>。政策变更会更新本页并标注生效日期。</p>
+
+<div class="en">
+<h1>Privacy Policy (English)</h1>
+<p class="muted">Effective: September 24, 2026 · Applies to the NConvo app (Android / iOS) and nconvo.tinylabpro.com</p>
+
+<p>NConvo by TinyProductLab is a local-first network operations tool (SSH terminal, RDP desktop, LAN transfer, network diagnostics). This policy explains what we do — and do not do — with your data.</p>
+
+<h2>1. Core data stays on your device</h2>
+<ul>
+  <li>Connection profiles (SSH / RDP hosts, ports, usernames)</li>
+  <li>Credentials (passwords, SSH private keys), sealed by Android Keystore / iOS Keychain; private keys have no plaintext export</li>
+  <li>Session history and terminal scrollback</li>
+  <li>Settings (appearance, language, tool preferences)</li>
+</ul>
+<p>None of the above is uploaded to our servers unless you explicitly enable backup.</p>
+
+<h2>2. Data flow per feature</h2>
+<ul>
+  <li><b>Set-up connections:</b> your device talks directly to the target host; there is no relay through our servers.</li>
+  <li><b>Diagnostics / LAN tools:</b> direct traffic to targets; DNS answers come from your configured or system resolvers.</li>
+  <li><b>LAN transfer:</b> peer-to-peer within the same local network.</li>
+  <li><b>WebDAV backup:</b> AES-GCM-encrypted files are written to the WebDAV server <b>you choose</b> (e.g. Nutstore, your NAS). We cannot read your backups.</li>
+</ul>
+
+<h2>3. Optional account</h2>
+<p>An account is optional and never required for core features. Registration uses your email to send a verification code; account records (nickname, email, login state) live on our self-hosted service (account.tinylabpro.com). You may export or request deletion of account data at any time inside the app's account settings.</p>
+
+<h2>4. What we never do</h2>
+<ul>
+  <li>No advertisements, no advertising trackers, no third-party analytics or crash-reporting SDKs</li>
+  <li>We do not read your clipboard or terminal contents</li>
+  <li>We never share, sell, or rent personal information</li>
+</ul>
+
+<h2>5. Permissions</h2>
+<p>Local Network (iOS) → LAN scan / transfer only; Camera → QR pairing only; Face ID / biometrics → unlocking credentials only when you enable it.</p>
+
+<h2>6. Hosting logs, cookies, children</h2>
+<p>The site is hosted on GitHub Pages behind Cloudflare; those providers may keep standard access logs under their own policies. No tracking cookies; language preference is stored in your browser's localStorage only. The app and site are not directed at children under 13 and we do not knowingly collect their data.</p>
+
+<h2>7. Contact</h2>
+<p>For privacy questions or to exercise your data rights, email <a href="mailto:userfeedback@zohomail.com">userfeedback@zohomail.com</a> (TinyProductLab). Material changes to this policy will be posted on this page with an updated effective date.</p>
+</div>
+
+<footer style="margin:40px 0 0;padding:20px 0;color:#999;font-size:13px;border-top:1px solid #eee;text-align:center">
+  © 2026 TinyProductLab · 小产品实验室 · <a href="https://tinylabpro.com/">更多工具</a>
 </footer>
 </body>
 </html>
