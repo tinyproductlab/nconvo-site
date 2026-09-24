@@ -27,7 +27,7 @@
 <a class="brand" href="index.html">← NConvo</a>
 
 <h1>隐私政策</h1>
-<p class="muted">生效日期：2026 年 9 月 24 日 · 适用于 NConvo App（Android / iOS）与 nconvo.tinylabpro.com 网站</p>
+<p class="muted">生效日期：2026 年 9 月 24 日 · 适用于 NConvo App（移动端）与 nconvo.tinylabpro.com 网站</p>
 
 <p>NConvo 由小产品实验室（TinyProductLab）开发运营。这是一款本地优先的网络运维工具：SSH 终端、RDP 远程桌面、局域网互传与网络诊断。本政策说明我们如何处理（以及**不**如何处理）你的数据。</p>
 
@@ -35,7 +35,7 @@
 <p>以下数据默认只保存在你的设备本地，除非你选择备份功能，否则不会离开设备：</p>
 <ul>
   <li>SSH / RDP 连接配置（主机、端口、用户名等）</li>
-  <li>登录凭证（密码、SSH 私钥）。私钥经系统级加密存放（Android Keystore / iOS Keychain），App 不提供私钥明文导出</li>
+  <li>登录凭证（密码、SSH 私钥）。私钥经系统级加密存放（系统密钥库 / 安全存储区），App 不提供私钥明文导出</li>
   <li>会话历史与终端滚动缓冲</li>
   <li>设置项（外观、语言、工具偏好）</li>
 </ul>
@@ -64,7 +64,7 @@
 <h2>五、系统权限说明</h2>
 <table>
   <tr><th>权限</th><th>用途</th><th>触发时机</th></tr>
-  <tr><td>本地网络（iOS）</td><td>局域网扫描、局域网互传</td><td>仅在发起扫描或传输时请求</td></tr>
+  <tr><td>本地网络（系统权限）</td><td>局域网扫描、局域网互传</td><td>仅在发起扫描或传输时请求</td></tr>
   <tr><td>相机</td><td>扫码添加连接 / 配对设备</td><td>仅在你点击扫码时请求</td></tr>
   <tr><td>Face ID / 生物识别</td><td>解锁已保存的凭证与应用锁</td><td>仅在你开启应用锁或要求生物识别时</td></tr>
   <tr><td>网络 / 蜂窝与 Wi-Fi</td><td>SSH、RDP、诊断工具所需</td><td>默认权限</td></tr>
@@ -87,14 +87,14 @@
 
 <div class="en">
 <h1>Privacy Policy (English)</h1>
-<p class="muted">Effective: September 24, 2026 · Applies to the NConvo app (Android / iOS) and nconvo.tinylabpro.com</p>
+<p class="muted">Effective: September 24, 2026 · Applies to the NConvo mobile app and nconvo.tinylabpro.com</p>
 
 <p>NConvo by TinyProductLab is a local-first network operations tool (SSH terminal, RDP desktop, LAN transfer, network diagnostics). This policy explains what we do — and do not do — with your data.</p>
 
 <h2>1. Core data stays on your device</h2>
 <ul>
   <li>Connection profiles (SSH / RDP hosts, ports, usernames)</li>
-  <li>Credentials (passwords, SSH private keys), sealed by Android Keystore / iOS Keychain; private keys have no plaintext export</li>
+  <li>Credentials (passwords, SSH private keys), sealed by the device secure keychain / system secure storage; private keys have no plaintext export</li>
   <li>Session history and terminal scrollback</li>
   <li>Settings (appearance, language, tool preferences)</li>
 </ul>
@@ -119,7 +119,7 @@
 </ul>
 
 <h2>5. Permissions</h2>
-<p>Local Network (iOS) → LAN scan / transfer only; Camera → QR pairing only; Face ID / biometrics → unlocking credentials only when you enable it.</p>
+<p>Local Network permission → LAN scan / transfer only; Camera → QR pairing only; Face ID / biometrics → unlocking credentials only when you enable it.</p>
 
 <h2>6. Hosting logs, cookies, children</h2>
 <p>The site is hosted on GitHub Pages behind Cloudflare; those providers may keep standard access logs under their own policies. No tracking cookies; language preference is stored in your browser's localStorage only. The app and site are not directed at children under 13 and we do not knowingly collect their data.</p>
