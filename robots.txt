@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tinyproductlab.github.io/netchat-site/sitemap.xml
