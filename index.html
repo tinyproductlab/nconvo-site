@@ -237,6 +237,7 @@
 
   /* Screenshot grid */
   .shot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; max-width: 980px; margin: 0 auto; }
+  .shot-grid-wide { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 20px; }
   .shot-grid img { width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--border); box-shadow: 0 12px 30px rgba(30,99,208,.14); background: #0A1630; }
 
   /* Article body */
@@ -403,7 +404,8 @@
     <div class="container">
       <h2 class="section-title" data-zh="界面预览" data-en="Screenshots">界面预览</h2>
       <p class="section-desc" data-zh="真实界面，Android 与 iOS" data-en="Real screens, on Android and iOS">真实界面，Android 与 iOS</p>
-      <div class="shot-grid" id="shot-grid"></div>
+      <div class="shot-grid" id="shot-grid-portrait"></div>
+      <div class="shot-grid shot-grid-wide" id="shot-grid-landscape"></div>
     </div>
   </section>
 
@@ -455,15 +457,18 @@
       { file: "ios-04-contacts-list.jpg", alt: "NConvo iOS 设备列表" },
       { file: "ios-06-me.jpg",           alt: "NConvo iOS 我的页" }
     ];
-    var ALL_SHOTS = [
+    // 界面预览按方向分两排,行高才能整齐:竖屏一排,横屏一排。
+    var PORTRAIT_SHOTS = [
       { file: "shot-portrait.jpg",       alt: "NConvo Android 会话列表(竖屏)" },
-      { file: "shot-2.jpg",              alt: "NConvo Android RDP 远程桌面会话（横屏）" },
-      { file: "shot-4.jpg",              alt: "NConvo RDP 首次连接证书确认" },
-      { file: "ios-01-sessions.jpg",     alt: "NConvo iOS 会话列表（空态）" },
+      { file: "ios-01-sessions.jpg",     alt: "NConvo iOS 会话列表(空态)" },
       { file: "ios-03-ssh-editor.jpg",   alt: "NConvo iOS 添加 SSH 编辑器" },
       { file: "ios-04-contacts-list.jpg", alt: "NConvo iOS 局域网设备列表" },
       { file: "ios-05-discover.jpg",     alt: "NConvo iOS 发现页网络工具" },
-      { file: "ios-06-me.jpg",           alt: "NConvo iOS 我的页：NConvo · 网络会话" }
+      { file: "ios-06-me.jpg",           alt: "NConvo iOS 我的页:NConvo · 网络会话" }
+    ];
+    var LANDSCAPE_SHOTS = [
+      { file: "shot-2.jpg",              alt: "NConvo Android RDP 远程桌面会话(横屏)" },
+      { file: "shot-4.jpg",              alt: "NConvo RDP 首次连接证书确认(横屏)" }
     ];
 
     (function initCarousel() {
@@ -496,14 +501,16 @@
     })();
 
     (function renderShots() {
-      var grid = document.getElementById("shot-grid");
-      if (!grid) return;
-      ALL_SHOTS.forEach(function (shot) {
-        var img = document.createElement("img");
-        img.src = "assets/" + shot.file;
-        img.alt = shot.alt;
-        img.loading = "lazy";
-        grid.appendChild(img);
+      [["shot-grid-portrait", PORTRAIT_SHOTS], ["shot-grid-landscape", LANDSCAPE_SHOTS]].forEach(function (pair) {
+        var grid = document.getElementById(pair[0]);
+        if (!grid) return;
+        pair[1].forEach(function (shot) {
+          var img = document.createElement("img");
+          img.src = "assets/" + shot.file;
+          img.alt = shot.alt;
+          img.loading = "lazy";
+          grid.appendChild(img);
+        });
       });
     })();
 
