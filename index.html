@@ -272,9 +272,11 @@
   footer a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); }
   footer .links { display: flex; gap: 26px; justify-content: center; margin-bottom: 18px; flex-wrap: wrap; }
   footer .links a { border: none; font-weight: 600; }
-  .tpl-topbar { max-width: 1100px; margin: 0 auto; padding: 12px 20px 0; font-size: 13px; }
-  .tpl-topbar a { color: rgba(255,255,255,.75); text-decoration: none; }
-  .tpl-topbar a:hover { color: #fff; }
+  .tpl-topbar { max-width: 1100px; margin: 0 auto; padding: 14px 20px; font-size: 13px; }
+  .tpl-topbar a { display:inline-flex; align-items:center; min-height:40px; padding:8px 14px; border:1px solid #cddbf1; border-radius:10px; background:#fff; color:#214b88; font-weight:650; text-decoration:none; }
+  .tpl-topbar a:hover { background:#edf4ff; color:#173761; }
+  .tpl-topbar a:focus-visible { outline:2px solid #285be0; outline-offset:3px; }
+  @media(max-width:600px){.tpl-topbar{padding-top:74px;}}
   .tpl-footer-copy { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,.6); }
 
   @media (max-width: 640px) {
@@ -336,7 +338,7 @@
     <button id="lang-en" onclick="setLang('en')">EN</button>
   </div>
 
-  <div class="tpl-topbar"><a href="https://tinylabpro.com/">← TinyProductLab 小产品实验室</a></div>
+  <div class="tpl-topbar"><a href="https://tinylabpro.com/" data-zh="← 小产品实验室" data-en="← Tiny Product Lab">← 小产品实验室</a></div>
   <button class="coffee-fab" type="button" onclick="document.getElementById('coffee-modal').classList.add('open')" data-zh="请喝咖啡" data-en="Buy me a coffee">请喝咖啡</button>
 
   <header class="hero">
