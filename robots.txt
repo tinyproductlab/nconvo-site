@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tinyproductlab.github.io/netchat-site/sitemap.xml
+Sitemap: https://nconvo.tinylabpro.com/sitemap.xml
